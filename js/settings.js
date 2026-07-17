@@ -1,5 +1,5 @@
-import { languageFor, t, translatePage } from "./i18n.js";
-import { DEFAULT_STATUS, normalizeStatus, STORAGE_KEY } from "./status.js";
+import { languageFor, t, translatePage } from "./i18n.js?v=5";
+import { DEFAULT_STATUS, normalizeStatus, STORAGE_KEY } from "./status.js?v=5";
 
 const trello = window.TrelloPowerUp.iframe();
 const form = document.querySelector("form");
@@ -7,16 +7,15 @@ const feedback = document.querySelector("#feedback");
 const fields = [...form.elements];
 let status = { ...DEFAULT_STATUS };
 let language = languageFor();
+let currentMember = {};
 
 init();
 
 async function init() {
   try {
     status = normalizeStatus(await trello.get("board", "shared", STORAGE_KEY, {}));
-    if (!status.person) {
-      const member = await trello.member("fullName").catch(() => ({}));
-      status.person = member.fullName || "";
-    }
+    currentMember = await trello.member("id", "fullName").catch(() => ({}));
+    if (!status.person) status.person = currentMember.fullName || "";
     language = languageFor(status.language);
     populate(status);
     translatePage(language);
@@ -66,6 +65,7 @@ form.addEventListener("submit", async (event) => {
     message: form.message.value,
     alternateContact: form.alternateContact.value,
     language: form.language.value,
+    createdBy: status.createdBy || currentMember.id || "",
     updatedAt: new Date().toISOString(),
   });
 

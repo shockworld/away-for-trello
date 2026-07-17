@@ -1,8 +1,9 @@
-import { languageFor, t, translatePage } from "./i18n.js";
-import { formatDate, isActive, normalizeStatus, STORAGE_KEY } from "./status.js";
+import { languageFor, t, translatePage } from "./i18n.js?v=5";
+import { formatDate, isActive, normalizeStatus, STORAGE_KEY } from "./status.js?v=5";
 
-const trello = window.TrelloPowerUp.iframe();
+const trello = window.TrelloPowerUp.iframe({ helpfulStacks: true });
 const content = document.querySelector("#notice-content");
+const settingsUrl = new URL("../settings.html?v=5", import.meta.url).href;
 
 init();
 
@@ -31,6 +32,17 @@ async function init() {
     if (status.alternateContact) {
       contact.hidden = false;
       contact.querySelector("dd").textContent = status.alternateContact;
+    }
+
+    const member = await trello.member("id").catch(() => ({}));
+    const canEditLegacyNotice = !status.createdBy && trello.memberCanWriteToModel("board");
+    if ((status.createdBy && member.id === status.createdBy) || canEditLegacyNotice) {
+      document.querySelector("#notice-actions").hidden = false;
+      document.querySelector("#edit-notice").addEventListener("click", () => trello.popup({
+        title: t("settingsTitle", language),
+        url: settingsUrl,
+        height: 610,
+      }));
     }
   } catch (error) {
     content.innerHTML = `<p class="feedback error">${escapeHtml(error.message || "Unable to load notice.")}</p>`;

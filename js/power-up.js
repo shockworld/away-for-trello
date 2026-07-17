@@ -2,8 +2,8 @@ import { languageFor, t as translate } from "./i18n.js";
 import { formatDate, isActive, normalizeStatus, STORAGE_KEY } from "./status.js";
 
 const ICON = new URL("../images/icon.svg", import.meta.url).href;
-const SETTINGS = new URL("../settings.html", import.meta.url).href;
-const NOTICE = new URL("../notice.html", import.meta.url).href;
+const SETTINGS = new URL("../settings.html?v=5", import.meta.url).href;
+const NOTICE = new URL("../notice.html?v=5", import.meta.url).href;
 
 if (window.self !== window.top) document.body.classList.add("embedded");
 
