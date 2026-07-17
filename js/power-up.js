@@ -44,16 +44,28 @@ async function cardBadges(t) {
   if (!isActive(status)) return [];
 
   const language = languageFor(status.language);
-  const label = translate(status.type, language);
-  const returnDate = formatDate(status.returnDate, language);
-  const returns = returnDate
-    ? ` · ${translate("returns", language, { date: returnDate })}`
-    : "";
+  const icon = {
+    vacation: "🏖️",
+    away: "⏳",
+    business: "✈️",
+    sick: "🤒",
+    custom: "⛔",
+  }[status.type];
+  const returnDate = formatBadgeDate(status.returnDate, language);
 
   return [{
-    text: `🏖️ ${status.person}: ${label}${returns}`,
+    text: `${icon} ${status.person}${returnDate ? ` ↩ ${returnDate}` : ""}`,
     color: status.type === "sick" ? "red" : "orange",
   }];
+}
+
+function formatBadgeDate(dateKey, language) {
+  if (!dateKey) return "";
+  const [year, month, day] = dateKey.split("-").map(Number);
+  return new Intl.DateTimeFormat(language, {
+    day: "numeric",
+    month: "short",
+  }).format(new Date(year, month - 1, day)).replaceAll(".", "");
 }
 
 async function cardDetailBadges(t) {
