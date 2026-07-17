@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="A free, privacy-friendly availability and vacation notice for Trello boards.">
+    <title>Away for Trello</title>
+    <link rel="icon" href="./images/icon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="./css/styles.css">
+    <style>.embedded .landing{display:none}</style>
+  </head>
+  <body class="landing-page">
+    <main class="landing" id="landing">
+      <nav class="landing-nav" aria-label="Main navigation">
+        <a class="brand" href="./"><img src="./images/icon.svg" alt="">Away for Trello</a>
+        <div><a href="./support.html">Support</a><a href="./privacy.html">Privacy</a></div>
+      </nav>
+      <section class="hero">
+        <div>
+          <p class="eyebrow">Free Trello Power-Up</p>
+          <h1>Make your time away visible.</h1>
+          <p class="hero-copy">Share a vacation, absence, or return date right in the board header—without another account, backend, or tracker.</p>
+          <a class="button primary" href="https://trello.com/power-ups/admin">Configure in Trello</a>
+          <a class="button secondary" href="https://github.com/shockworld/away-for-trello">View source</a>
+        </div>
+        <div class="demo-card" aria-label="Example availability notice">
+          <div class="demo-header"><img src="./images/icon.svg" alt=""><span>Miki: De vacaciones</span></div>
+          <div class="demo-body">
+            <span class="status-pill">🏖️ De vacaciones</span>
+            <h2>Miki</h2>
+            <p>De vuelta el 27 de julio de 2026</p>
+            <div class="demo-message">Responderé a tu mensaje cuando vuelva. Si es urgente, contacta con el equipo de soporte.</div>
+          </div>
+        </div>
+      </section>
+      <section class="features" aria-labelledby="features-title">
+        <h2 id="features-title">Small, focused, and privacy-friendly</h2>
+        <div class="feature-grid">
+          <article><span>👀</span><h3>Visible where work happens</h3><p>The current status appears as a button in the board header.</p></article>
+          <article><span>📅</span><h3>Expires automatically</h3><p>The notice stops showing when the configured return date arrives.</p></article>
+          <article><span>🔒</span><h3>No external database</h3><p>Your notice stays in Trello's shared board storage. We run no backend or analytics.</p></article>
+        </div>
+      </section>
+      <footer><span>Open source under the MIT License.</span><span><a href="./support.html">Support</a> · <a href="./privacy.html">Privacy</a></span></footer>
+    </main>
+    <script src="https://p.trellocdn.com/power-up.min.js"></script>
+    <script type="module" src="./js/power-up.js"></script>
+  </body>
+</html>

@@ -1,0 +1,10 @@
+{
+  "name": "away-for-trello",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test",
+    "check": "node --check js/power-up.js && node --check js/settings.js && node --check js/notice.js"
+  }
+}

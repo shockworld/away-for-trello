@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Availability notice · Away for Trello</title>
+    <link rel="stylesheet" href="./css/styles.css">
+  </head>
+  <body class="power-up-page">
+    <main id="content" class="popup-content notice">
+      <header class="popup-heading"><img src="./images/icon.svg" alt=""><div><p class="eyebrow">Away for Trello</p><h1 data-i18n="noticeTitle">Availability notice</h1></div></header>
+      <section id="notice-content">
+        <p id="notice-status" class="status-pill"></p>
+        <h2 id="notice-person"></h2>
+        <p id="notice-start" class="date-line" hidden></p>
+        <p id="notice-return" class="date-line strong" hidden></p>
+        <p id="notice-message" class="notice-message" hidden></p>
+        <dl id="notice-contact" hidden><dt data-i18n="alternative">Alternative contact</dt><dd></dd></dl>
+      </section>
+      <footer class="popup-footer"><a href="./privacy.html" target="_blank" data-i18n="footerPrivacy">Privacy</a><a href="./support.html" target="_blank" data-i18n="footerSupport">Support</a></footer>
+    </main>
+    <script src="https://p.trellocdn.com/power-up.min.js"></script>
+    <script type="module" src="./js/notice.js"></script>
+  </body>
+</html>

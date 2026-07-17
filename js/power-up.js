@@ -1,0 +1,44 @@
+import { languageFor, t as translate } from "./i18n.js";
+import { isActive, normalizeStatus, STORAGE_KEY } from "./status.js";
+
+const ICON = new URL("../images/icon.svg", import.meta.url).href;
+const SETTINGS = new URL("../settings.html", import.meta.url).href;
+const NOTICE = new URL("../notice.html", import.meta.url).href;
+
+if (window.self !== window.top) document.body.classList.add("embedded");
+
+function openSettings(t) {
+  return t.popup({ title: "Away for Trello", url: SETTINGS, height: 610 });
+}
+
+function openNotice(t) {
+  return t.popup({ title: "Away for Trello", url: NOTICE, height: 420 });
+}
+
+async function boardButtons(t) {
+  const raw = await t.get("board", "shared", STORAGE_KEY, {});
+  const status = normalizeStatus(raw);
+  const language = languageFor(status.language);
+
+  if (!isActive(status)) {
+    if (!t.memberCanWriteToModel("board")) return [];
+    return [{
+      icon: ICON,
+      text: translate("setAvailability", language),
+      callback: openSettings,
+      condition: "edit",
+    }];
+  }
+
+  const label = translate(status.type, language);
+  return [{
+    icon: ICON,
+    text: `${status.person}: ${label}`,
+    callback: openNotice,
+  }];
+}
+
+window.TrelloPowerUp.initialize({
+  "board-buttons": boardButtons,
+  "show-settings": openSettings,
+});

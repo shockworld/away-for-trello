@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Availability settings · Away for Trello</title>
+    <link rel="stylesheet" href="./css/styles.css">
+  </head>
+  <body class="power-up-page">
+    <main id="content" class="popup-content">
+      <header class="popup-heading">
+        <img src="./images/icon.svg" alt="">
+        <div><p class="eyebrow">Away for Trello</p><h1 data-i18n="settingsTitle">Availability settings</h1></div>
+      </header>
+      <form novalidate>
+        <label class="toggle-row"><span data-i18n="active">Publish this notice</span><input type="checkbox" name="enabled"><span class="toggle" aria-hidden="true"></span></label>
+        <div class="field-grid">
+          <label><span data-i18n="person">Name</span><input name="person" maxlength="80" data-i18n-placeholder="personPlaceholder" autocomplete="name"></label>
+          <label><span data-i18n="status">Status</span><select name="type"><option value="vacation" data-i18n="vacation">On vacation</option><option value="away" data-i18n="away">Away</option><option value="business" data-i18n="business">Business trip</option><option value="sick" data-i18n="sick">Sick leave</option><option value="custom" data-i18n="custom">Unavailable</option></select></label>
+          <label><span data-i18n="startDate">First day away</span><input type="date" name="startDate"></label>
+          <label><span data-i18n="returnDate">Back on</span><input type="date" name="returnDate"></label>
+        </div>
+        <label><span data-i18n="message">Message</span><textarea name="message" maxlength="500" rows="3" data-i18n-placeholder="messagePlaceholder"></textarea></label>
+        <label><span data-i18n="alternateContact">Alternative contact</span><input name="alternateContact" maxlength="200" data-i18n-placeholder="alternatePlaceholder"></label>
+        <label><span data-i18n="language">Display language</span><select name="language"><option value="auto" data-i18n="automatic">Automatic</option><option value="es">Español</option><option value="ca">Català</option><option value="en">English</option></select></label>
+        <p class="privacy-hint" data-i18n="privacyHint">This information is shared with everyone who can view the Trello board. Do not enter secrets or sensitive information.</p>
+        <p id="feedback" class="feedback" hidden aria-live="polite"></p>
+        <button class="button primary full" type="submit" data-i18n="save">Save notice</button>
+      </form>
+      <footer class="popup-footer"><a href="./privacy.html" target="_blank" data-i18n="footerPrivacy">Privacy</a><a href="./support.html" target="_blank" data-i18n="footerSupport">Support</a></footer>
+    </main>
+    <script src="https://p.trellocdn.com/power-up.min.js"></script>
+    <script type="module" src="./js/settings.js"></script>
+  </body>
+</html>
