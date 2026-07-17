@@ -16,7 +16,7 @@ A free, privacy-friendly Trello Power-Up that places a clear availability status
 
 Create an app in the [Trello app administration portal](https://trello.com/power-ups/admin) and use:
 
-- **Iframe connector URL:** `https://away-for-trello.shockworld.network/`
+- **Iframe connector URL:** `https://away-for-trello.shockworld.net/?v=5`
 - **Capabilities:** `board-buttons`, `card-badges`, `card-detail-badges`, `show-settings`
 
 For initial private testing, enable the Power-Up on a test board and open **Power-Ups → Away for Trello → Settings**.
