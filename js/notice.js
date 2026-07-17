@@ -38,10 +38,11 @@ async function init() {
     const canEditLegacyNotice = !status.createdBy && trello.memberCanWriteToModel("board");
     if ((status.createdBy && member.id === status.createdBy) || canEditLegacyNotice) {
       document.querySelector("#notice-actions").hidden = false;
-      document.querySelector("#edit-notice").addEventListener("click", () => trello.popup({
+      document.querySelector("#edit-notice").addEventListener("click", (event) => trello.popup({
         title: t("settingsTitle", language),
         url: settingsUrl,
         height: 610,
+        mouseEvent: event,
       }));
     }
   } catch (error) {
