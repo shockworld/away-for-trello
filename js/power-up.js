@@ -1,5 +1,5 @@
 import { languageFor, t as translate } from "./i18n.js";
-import { isActive, normalizeStatus, STORAGE_KEY } from "./status.js";
+import { formatDate, isActive, normalizeStatus, STORAGE_KEY } from "./status.js";
 
 const ICON = new URL("../images/icon.svg", import.meta.url).href;
 const SETTINGS = new URL("../settings.html", import.meta.url).href;
@@ -38,7 +38,26 @@ async function boardButtons(t) {
   }];
 }
 
+async function cardBadges(t) {
+  const raw = await t.get("board", "shared", STORAGE_KEY, {});
+  const status = normalizeStatus(raw);
+  if (!isActive(status)) return [];
+
+  const language = languageFor(status.language);
+  const label = translate(status.type, language);
+  const returnDate = formatDate(status.returnDate, language);
+  const returns = returnDate
+    ? ` · ${translate("returns", language, { date: returnDate })}`
+    : "";
+
+  return [{
+    text: `🏖️ ${status.person}: ${label}${returns}`,
+    color: status.type === "sick" ? "red" : "orange",
+  }];
+}
+
 window.TrelloPowerUp.initialize({
   "board-buttons": boardButtons,
+  "card-badges": cardBadges,
   "show-settings": openSettings,
 });
