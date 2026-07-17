@@ -56,8 +56,29 @@ async function cardBadges(t) {
   }];
 }
 
+async function cardDetailBadges(t) {
+  const raw = await t.get("board", "shared", STORAGE_KEY, {});
+  const status = normalizeStatus(raw);
+  if (!isActive(status)) return [];
+
+  const language = languageFor(status.language);
+  const label = translate(status.type, language);
+  const returnDate = formatDate(status.returnDate, language);
+  const returns = returnDate
+    ? ` · ${translate("returns", language, { date: returnDate })}`
+    : "";
+
+  return [{
+    title: translate("noticeTitle", language),
+    text: `🏖️ ${status.person}: ${label}${returns}`,
+    color: status.type === "sick" ? "red" : "orange",
+    callback: openNotice,
+  }];
+}
+
 window.TrelloPowerUp.initialize({
   "board-buttons": boardButtons,
   "card-badges": cardBadges,
+  "card-detail-badges": cardDetailBadges,
   "show-settings": openSettings,
 });
