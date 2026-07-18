@@ -47,7 +47,7 @@ Then visit `http://localhost:4173`. Trello itself requires an HTTPS connector UR
 │   ├── app-icon-v4.png     # App icon
 │   ├── favicon-v4.png      # Browser favicon
 │   ├── apple-touch-icon-v4.png
-│   └── icon.svg            # Compact board-button icon
+│   └── board-icon-v9.svg   # Monochrome board-button icon
 ├── js/
 │   ├── i18n.js
 │   ├── notice.js

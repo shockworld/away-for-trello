@@ -1,7 +1,7 @@
 import { languageFor, t as translate } from "./i18n.js?v=8";
 import { formatDate, isActive, normalizeStatus, STORAGE_KEY } from "./status.js?v=8";
 
-const ICON = new URL("../images/icon.svg", import.meta.url).href;
+const ICON = new URL("../images/board-icon-v9.svg", import.meta.url).href;
 const SETTINGS = new URL("../settings.html?v=8", import.meta.url).href;
 const NOTICE = new URL("../notice.html?v=8", import.meta.url).href;
 
