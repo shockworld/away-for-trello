@@ -1,5 +1,5 @@
-import { languageFor, t, translatePage } from "./i18n.js?v=5";
-import { DEFAULT_STATUS, normalizeStatus, STORAGE_KEY } from "./status.js?v=5";
+import { languageFor, t, translatePage } from "./i18n.js?v=8";
+import { DEFAULT_STATUS, normalizeStatus, STORAGE_KEY } from "./status.js?v=8";
 
 const trello = window.TrelloPowerUp.iframe();
 const form = document.querySelector("form");
@@ -38,6 +38,7 @@ function populate(value) {
   form.returnDate.value = value.returnDate;
   form.message.value = value.message;
   form.alternateContact.value = value.alternateContact;
+  form.cardScope.value = value.cardScope;
   form.language.value = value.language;
 }
 
@@ -64,6 +65,7 @@ form.addEventListener("submit", async (event) => {
     returnDate: form.returnDate.value,
     message: form.message.value,
     alternateContact: form.alternateContact.value,
+    cardScope: form.cardScope.value,
     language: form.language.value,
     createdBy: status.createdBy || currentMember.id || "",
     updatedAt: new Date().toISOString(),

@@ -23,6 +23,7 @@
         </div>
         <label><span data-i18n="message">Message</span><textarea name="message" maxlength="500" rows="3" data-i18n-placeholder="messagePlaceholder"></textarea></label>
         <label><span data-i18n="alternateContact">Alternative contact</span><input name="alternateContact" maxlength="200" data-i18n-placeholder="alternatePlaceholder"></label>
+        <label><span data-i18n="cardScope">Show the notice on cards</span><select name="cardScope"><option value="all" data-i18n="allCards">All cards</option><option value="assigned" data-i18n="assignedCards">Only cards where I am assigned</option></select></label>
         <label><span data-i18n="language">Display language</span><select name="language"><option value="auto" data-i18n="automatic">Automatic</option><option value="es">Español</option><option value="ca">Català</option><option value="en">English</option></select></label>
         <p class="privacy-hint" data-i18n="privacyHint">This information is shared with everyone who can view the Trello board. Do not enter secrets or sensitive information.</p>
         <p id="feedback" class="feedback" hidden aria-live="polite"></p>
@@ -31,6 +32,6 @@
       <footer class="popup-footer"><a href="./privacy.html" target="_blank" data-i18n="footerPrivacy">Privacy</a><a href="./support.html" target="_blank" data-i18n="footerSupport">Support</a></footer>
     </main>
     <script src="https://p.trellocdn.com/power-up.min.js"></script>
-    <script type="module" src="./js/settings.js?v=5"></script>
+    <script type="module" src="./js/settings.js?v=8"></script>
   </body>
 </html>

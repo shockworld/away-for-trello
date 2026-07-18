@@ -9,6 +9,7 @@ export const DEFAULT_STATUS = Object.freeze({
   message: "",
   alternateContact: "",
   language: "auto",
+  cardScope: "all",
   createdBy: "",
   updatedAt: "",
 });
@@ -29,6 +30,9 @@ export function normalizeStatus(value = {}) {
     language: ["auto", "es", "ca", "en"].includes(source.language)
       ? source.language
       : DEFAULT_STATUS.language,
+    cardScope: ["all", "assigned"].includes(source.cardScope)
+      ? source.cardScope
+      : DEFAULT_STATUS.cardScope,
     createdBy: clean(source.createdBy, 64),
     updatedAt: typeof source.updatedAt === "string" ? source.updatedAt : "",
   };

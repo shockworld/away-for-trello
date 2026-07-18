@@ -24,6 +24,10 @@ test("normalization trims and limits user content", () => {
   assert.equal(value.type, "vacation");
 });
 
+test("existing notices default to all cards", () => {
+  assert.equal(normalizeStatus({ enabled: true, person: "Miki" }).cardScope, "all");
+});
+
 test("local date keys do not use UTC conversion", () => {
   assert.equal(localDateKey(new Date(2026, 0, 2, 1)), "2026-01-02");
 });

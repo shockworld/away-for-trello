@@ -1,9 +1,9 @@
-import { languageFor, t, translatePage } from "./i18n.js?v=5";
-import { formatDate, isActive, normalizeStatus, STORAGE_KEY } from "./status.js?v=5";
+import { languageFor, t, translatePage } from "./i18n.js?v=8";
+import { formatDate, isActive, normalizeStatus, STORAGE_KEY } from "./status.js?v=8";
 
 const trello = window.TrelloPowerUp.iframe({ helpfulStacks: true });
 const content = document.querySelector("#notice-content");
-const settingsUrl = new URL("../settings.html?v=5", import.meta.url).href;
+const settingsUrl = new URL("../settings.html?v=8", import.meta.url).href;
 
 init();
 

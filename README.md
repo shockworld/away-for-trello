@@ -7,6 +7,7 @@ A free, privacy-friendly Trello Power-Up that places a clear availability status
 - Vacation, away, business trip, sick leave, and custom statuses.
 - A board-header button with the current status.
 - A detail popup with dates, message, and alternative contact.
+- Card visibility can apply to every card or only cards assigned to the notice creator.
 - Automatic visual expiry on the return date.
 - Spanish, Catalan, and English interface.
 - Shared Trello board storage only: no backend, analytics, cookies, or external database.

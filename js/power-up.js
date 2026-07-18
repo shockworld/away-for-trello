@@ -1,9 +1,9 @@
-import { languageFor, t as translate } from "./i18n.js";
-import { formatDate, isActive, normalizeStatus, STORAGE_KEY } from "./status.js";
+import { languageFor, t as translate } from "./i18n.js?v=8";
+import { formatDate, isActive, normalizeStatus, STORAGE_KEY } from "./status.js?v=8";
 
 const ICON = new URL("../images/icon.svg", import.meta.url).href;
-const SETTINGS = new URL("../settings.html?v=5", import.meta.url).href;
-const NOTICE = new URL("../notice.html?v=5", import.meta.url).href;
+const SETTINGS = new URL("../settings.html?v=8", import.meta.url).href;
+const NOTICE = new URL("../notice.html?v=8", import.meta.url).href;
 
 if (window.self !== window.top) document.body.classList.add("embedded");
 
@@ -42,6 +42,7 @@ async function cardBadges(t) {
   const raw = await t.get("board", "shared", STORAGE_KEY, {});
   const status = normalizeStatus(raw);
   if (!isActive(status)) return [];
+  if (!await shouldShowOnCard(t, status)) return [];
 
   const language = languageFor(status.language);
   const icon = {
@@ -68,10 +69,18 @@ function formatBadgeDate(dateKey, language) {
   }).format(new Date(year, month - 1, day)).replaceAll(".", "");
 }
 
+async function shouldShowOnCard(t, status) {
+  if (status.cardScope !== "assigned") return true;
+  if (!status.createdBy) return false;
+  const card = await t.card("members");
+  return (card.members || []).some((member) => member.id === status.createdBy);
+}
+
 async function cardDetailBadges(t) {
   const raw = await t.get("board", "shared", STORAGE_KEY, {});
   const status = normalizeStatus(raw);
   if (!isActive(status)) return [];
+  if (!await shouldShowOnCard(t, status)) return [];
 
   const language = languageFor(status.language);
   const label = translate(status.type, language);
