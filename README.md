@@ -1,6 +1,8 @@
 # Away for Trello
 
-A free, privacy-friendly Trello Power-Up that places a clear availability status in the board header. Board members can publish an absence, return date, personal message, and alternative contact without creating an external account.
+A free, privacy-friendly Trello Power-Up that displays vacation, out-of-office and availability notices in the board header and on cards. Board members can publish an absence, return date, personal message, and alternative contact without creating an external account.
+
+[Add Away for Trello to a board](https://trello.com/power-ups/6a5a1c5a7ebad14e65709232/enable)
 
 ## What the MVP includes
 
@@ -17,7 +19,7 @@ A free, privacy-friendly Trello Power-Up that places a clear availability status
 
 Create an app in the [Trello app administration portal](https://trello.com/power-ups/admin) and use:
 
-- **Iframe connector URL:** `https://away-for-trello.shockworld.net/?v=5`
+- **Iframe connector URL:** `https://away-for-trello.shockworld.net/?v=9`
 - **Capabilities:** `board-buttons`, `card-badges`, `card-detail-badges`, `show-settings`
 
 For initial private testing, enable the Power-Up on a test board and open **Power-Ups → Away for Trello → Settings**.
