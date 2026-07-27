@@ -3,12 +3,22 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="A free, privacy-friendly availability and vacation notice for Trello boards.">
+    <meta name="description" content="Show vacation, out-of-office and availability notices directly on Trello boards and cards.">
     <title>Away for Trello</title>
     <link rel="icon" href="./images/favicon-v4.png" type="image/png">
     <link rel="apple-touch-icon" href="./images/apple-touch-icon-v4.png">
     <link rel="stylesheet" href="./css/styles.css">
-    <style>.embedded .landing{display:none}</style>
+    <style>
+      .embedded .landing{display:none}
+      .install-actions{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+      .install-actions .button.secondary{margin-left:0}
+      .trello-install{display:inline-flex;border-radius:4px}
+      .trello-install img{display:block}
+      .install-panel{margin-bottom:70px;padding:38px;text-align:center;border:1px solid var(--border);border-radius:14px;background:var(--soft)}
+      .install-panel h2{margin:0 0 8px;font-size:32px}
+      .install-panel p{max-width:620px;margin:0 auto 22px;color:var(--muted);font-size:17px}
+      .install-panel .trello-install{justify-content:center}
+    </style>
   </head>
   <body class="landing-page">
     <main class="landing" id="landing">
@@ -20,37 +30,58 @@
         <div>
           <p class="eyebrow">Free Trello Power-Up</p>
           <h1>Make your time away visible.</h1>
-          <p class="hero-copy">Share a vacation, absence, or return date right in the board header—without another account, backend, or tracker.</p>
-          <a class="button primary" href="https://trello.com/power-ups/admin">Configure in Trello</a>
-          <a class="button secondary" href="https://github.com/shockworld/away-for-trello">View source</a>
+          <p class="hero-copy">Publish vacation, out-of-office and availability notices in your board header and cards—without another account, backend or tracker.</p>
+          <div class="install-actions">
+            <a class="trello-install" href="https://trello.com/power-ups/6a5a1c5a7ebad14e65709232/enable">
+              <img
+                alt="Add to Trello"
+                height="40"
+                width="144"
+                src="https://p.trellocdn.com/add_to_trello.png"
+                srcset="https://p.trellocdn.com/add_to_trello.png 1x, https://p.trellocdn.com/add_to_trello@2x.png 2x"
+              >
+            </a>
+            <a class="button secondary" href="https://github.com/shockworld/away-for-trello">View source</a>
+          </div>
         </div>
         <div class="demo-card" aria-label="Example availability notice">
           <div class="demo-header"><img src="./images/app-icon-v4.png" alt=""><span>Miki: On vacation</span></div>
           <div class="demo-body">
             <span class="status-pill">🏖️ On vacation</span>
             <h2>Miki</h2>
-            <p>Back on July 27, 2026</p>
+            <p>Back on August 10, 2026</p>
             <div class="demo-message">I will reply when I return. If it is urgent, please contact the support team.</div>
           </div>
         </div>
       </section>
       <section class="features" aria-labelledby="features-title">
-        <h2 id="features-title">Small, focused, and privacy-friendly</h2>
+        <h2 id="features-title">Availability notices where work happens</h2>
         <div class="feature-grid">
-          <article><span>👀</span><h3>Visible where work happens</h3><p>Show the notice on every card or only on cards assigned to the person who is away.</p></article>
-          <article><span>📅</span><h3>Expires automatically</h3><p>The notice stops showing when the configured return date arrives.</p></article>
-          <article><span>🔒</span><h3>No external database</h3><p>Your notice stays in Trello's shared board storage. We run no backend or analytics.</p></article>
+          <article><span>👀</span><h3>Visible on boards and cards</h3><p>See the status in the board header, on card fronts and inside opened cards—even from a direct card link.</p></article>
+          <article><span>🎯</span><h3>You choose the scope</h3><p>Show a notice on every card or only on cards assigned to the person who is away.</p></article>
+          <article><span>📅</span><h3>Expires automatically</h3><p>Add a return date and the notice will stop showing when the person comes back.</p></article>
         </div>
       </section>
       <section class="features" aria-labelledby="setup-title">
-        <h2 id="setup-title">Required Trello capabilities</h2>
-        <p class="hero-copy">Enable all four capabilities in the Trello app administration portal. Away for Trello does not require REST API authorization or access to an external account.</p>
+        <h2 id="setup-title">Simple from the first click</h2>
         <div class="feature-grid">
-          <article><span>🔘</span><h3><code>board-buttons</code></h3><p>Shows the current status and opens the full notice from the board header.</p></article>
-          <article><span>🏷️</span><h3><code>card-badges</code></h3><p>Displays the active vacation notice on the front of every card.</p></article>
-          <article><span>🪪</span><h3><code>card-detail-badges</code></h3><p>Keeps the notice visible when someone opens a card directly from a link.</p></article>
-          <article><span>⚙️</span><h3><code>show-settings</code></h3><p>Adds the configuration screen for creating and updating a notice.</p></article>
+          <article><span>➕</span><h3>Add the Power-Up</h3><p>Enable Away for Trello on the board where you work with your team or clients.</p></article>
+          <article><span>✍️</span><h3>Publish your notice</h3><p>Choose a status, dates, message, alternative contact and where it should appear.</p></article>
+          <article><span>🏖️</span><h3>Enjoy your time away</h3><p>Everyone sees when you will return and who to contact. You can edit your notice at any time.</p></article>
         </div>
+      </section>
+      <section class="install-panel" aria-labelledby="install-title">
+        <h2 id="install-title">Ready to make your time away visible?</h2>
+        <p>Free, open source and privacy-friendly. No external account, analytics or database required.</p>
+        <a class="trello-install" href="https://trello.com/power-ups/6a5a1c5a7ebad14e65709232/enable">
+          <img
+            alt="Add to Trello"
+            height="40"
+            width="144"
+            src="https://p.trellocdn.com/add_to_trello.png"
+            srcset="https://p.trellocdn.com/add_to_trello.png 1x, https://p.trellocdn.com/add_to_trello@2x.png 2x"
+          >
+        </a>
       </section>
       <footer><span>Open source under the MIT License.</span><span><a href="./support.html">Support</a> · <a href="./privacy.html">Privacy</a></span></footer>
     </main>
