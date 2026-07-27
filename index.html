@@ -18,6 +18,25 @@
       .install-panel h2{margin:0 0 8px;font-size:32px}
       .install-panel p{max-width:620px;margin:0 auto 22px;color:var(--muted);font-size:17px}
       .install-panel .trello-install{justify-content:center}
+      .product-tour{padding:70px 0 90px;border-top:1px solid var(--border)}
+      .product-tour>h2{margin:0;text-align:center;font-size:32px}
+      .product-tour>p{max-width:680px;margin:10px auto 38px;text-align:center;color:var(--muted);font-size:17px}
+      .tour-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+      .tour-shot{display:flex;flex-direction:column;margin:0;overflow:hidden;border:1px solid var(--border);border-radius:14px;background:var(--soft)}
+      .tour-shot.wide{grid-column:1/-1}
+      .tour-shot a{display:flex;align-items:flex-start;justify-content:center;min-height:0;padding:24px;background:var(--surface)}
+      .tour-shot img{display:block;max-width:100%;height:auto;border-radius:8px;box-shadow:0 10px 30px rgba(9,30,66,.12)}
+      .tour-shot:not(.wide) img{max-height:560px;object-fit:contain}
+      .tour-shot figcaption{padding:20px 22px}
+      .tour-shot h3{margin:0 0 5px;font-size:18px}
+      .tour-shot p{margin:0;color:var(--muted)}
+      @media(max-width:760px){
+        .product-tour{padding:55px 0 70px}
+        .tour-grid{grid-template-columns:1fr}
+        .tour-shot.wide{grid-column:auto}
+        .tour-shot a{padding:14px}
+        .tour-shot:not(.wide) img{max-height:none}
+      }
     </style>
   </head>
   <body class="landing-page">
@@ -51,6 +70,39 @@
             <p>Back on August 10, 2026</p>
             <div class="demo-message">I will reply when I return. If it is urgent, please contact the support team.</div>
           </div>
+        </div>
+      </section>
+      <section class="product-tour" aria-labelledby="tour-title">
+        <h2 id="tour-title">See Away for Trello in action</h2>
+        <p>Availability stays visible on the board, on relevant cards and when someone opens a card directly.</p>
+        <div class="tour-grid">
+          <figure class="tour-shot">
+            <a href="https://away-for-trello.shockworld.net/images/listings/trello-card-badges.png" target="_blank" rel="noopener">
+              <img src="https://away-for-trello.shockworld.net/images/listings/trello-card-badges.png" alt="Away for Trello availability badges displayed on Trello cards" loading="lazy">
+            </a>
+            <figcaption>
+              <h3>Compact card badges</h3>
+              <p>See who is away and when they return without opening each card.</p>
+            </figcaption>
+          </figure>
+          <figure class="tour-shot">
+            <a href="https://away-for-trello.shockworld.net/images/listings/trello-expanded-notice.png" target="_blank" rel="noopener">
+              <img src="https://away-for-trello.shockworld.net/images/listings/trello-expanded-notice.png" alt="Expanded Away for Trello availability notice with dates, message and alternative contact" loading="lazy">
+            </a>
+            <figcaption>
+              <h3>The complete notice</h3>
+              <p>Share dates, a personal message and an alternative contact in one clear view.</p>
+            </figcaption>
+          </figure>
+          <figure class="tour-shot wide">
+            <a href="https://away-for-trello.shockworld.net/images/listings/trello-card-message.png" target="_blank" rel="noopener">
+              <img src="https://away-for-trello.shockworld.net/images/listings/trello-card-message.png" alt="Availability notice visible inside an opened Trello card" loading="lazy">
+            </a>
+            <figcaption>
+              <h3>Visible inside opened cards</h3>
+              <p>The notice is still there when someone follows a direct card link from an email or notification.</p>
+            </figcaption>
+          </figure>
         </div>
       </section>
       <section class="features" aria-labelledby="features-title">
