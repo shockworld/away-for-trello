@@ -1,10 +1,12 @@
 # Away for Trello
 
-A free, privacy-friendly Trello Power-Up that displays vacation, out-of-office and availability notices in the board header and on cards. Board members can publish an absence, return date, personal message, and alternative contact without creating an external account.
+A free, privacy-friendly Trello Power-Up that displays vacation, holiday, out-of-office and availability notices in the board header and on cards. Board members can publish an absence, return date, personal message, and alternative contact without creating an external account.
+
+Away for Trello is publicly available in Trello's Power-Up library.
 
 [Add Away for Trello to a board](https://trello.com/power-ups/6a5a1c5a7ebad14e65709232/enable)
 
-## What the MVP includes
+## Features
 
 - Vacation, away, business trip, sick leave, and custom statuses.
 - A board-header button with the current status.
@@ -15,14 +17,20 @@ A free, privacy-friendly Trello Power-Up that displays vacation, out-of-office a
 - Shared Trello board storage only: no backend, analytics, cookies, or external database.
 - Permission-aware settings: read-only members can view a notice but cannot edit it.
 
-## Trello configuration
+## Installation
 
-Create an app in the [Trello app administration portal](https://trello.com/power-ups/admin) and use:
+Install the published Power-Up from Trello's Power-Up library using the link above, then open **Power-Ups → Away for Trello → Settings** on the board where you want to configure an availability notice.
+
+No manual Power-Up registration, API key, external account, or separate authorization is required for normal use.
+
+## Maintainer configuration
+
+The production Power-Up is registered in Trello with:
 
 - **Iframe connector URL:** `https://away-for-trello.shockworld.net/?v=9`
 - **Capabilities:** `board-buttons`, `card-badges`, `card-detail-badges`, `show-settings`
 
-For initial private testing, enable the Power-Up on a test board and open **Power-Ups → Away for Trello → Settings**.
+These settings are only relevant when maintaining or developing the Power-Up; end users should install the published version from Trello's Power-Up library.
 
 ## Local development
 
@@ -34,7 +42,7 @@ npm run check
 python3 -m http.server 4173
 ```
 
-Then visit `http://localhost:4173`. Trello itself requires an HTTPS connector URL, so use the deployed GitHub Pages URL for integration testing.
+Then visit `http://localhost:4173`. Trello itself requires an HTTPS connector URL, so use an HTTPS deployment for integration testing with a development Power-Up registration.
 
 ## Project structure
 
