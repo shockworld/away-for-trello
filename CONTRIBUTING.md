@@ -1,6 +1,6 @@
 # Contributing
 
-Issues and pull requests are welcome. Keep the MVP dependency-free, accessible, and compatible with current evergreen browsers.
+Issues and pull requests are welcome. Keep the project dependency-free, accessible, privacy-friendly, and compatible with current evergreen browsers.
 
 Before opening a pull request, run:
 
